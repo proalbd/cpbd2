@@ -16,7 +16,7 @@ canvas.width = 2048;
 canvas.height = 2048;
 
 // Frame images
-const FRAME1_URL = 'assets/i-am-awami-league-2.png';
+const FRAME1_URL = 'assets/cpbd2frame.png';
 
 let userImg = new Image();
 let frame1 = new Image();
