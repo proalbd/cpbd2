@@ -17,7 +17,6 @@ canvas.height = 2048;
 
 // Frame images
 const FRAME1_URL = 'assets/i-am-awami-league-2.png';
-const FRAME2_URL = 'assets/i-am-awami-league.png';
 
 let userImg = new Image();
 let frame1 = new Image();
@@ -32,37 +31,17 @@ let selectedFrame = 'frame1';
 let isDragging = false;
 let startX, startY;
 
-// Load frame 1
+
 frame1.crossOrigin = "anonymous";
 frame1.onload = () => { isFrame1Loaded = true; drawCanvas(); };
 frame1.src = FRAME1_URL;
 
-// Load frame 2
-frame2.crossOrigin = "anonymous";
-frame2.onload = () => { isFrame2Loaded = true; drawCanvas(); };
-frame2.src = FRAME2_URL;
-
-// Bengali number conversion
 const toBengaliNumber = (num) => {
     const bengaliDigits = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
     return num.toString().replace(/\d/g, d => bengaliDigits[d]);
 };
 
-// Copy hashtag
-function copyHashtag() {
-    navigator.clipboard.writeText('#আমিই_আওয়ামীলীগ').then(() => {
-        const n = document.createElement('div');
-        n.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-            কপি হয়েছে!
-        `;
-        n.style.cssText = 'position:fixed;top:20px;right:20px;background:#10b981;color:white;padding:8px 12px;border-radius:8px;z-index:9999;display:flex;align-items:center;';
-        document.body.appendChild(n);
-        setTimeout(() => n.remove(), 1500);
-    });
-}
+
 
 // Adjust input values
 window.adjust = (id, amount) => {
